@@ -1,0 +1,28 @@
+CAEC/MICA Gotcha
+================
+
+If this host kernel boots with repeated MMC timeouts (for example `Failed to initialize a non-removable card` and `Waiting for root file system` loops), verify these two options are disabled:
+
+- `CONFIG_OPENCCA_RESERVE_ASIDS=n`
+- `CONFIG_OPENCCA_HW_DEBUG=n`
+
+In this tree, set them in `rk3588_fragment.config`, regenerate `.config` (`make olddefconfig`), and rebuild/deploy `Image` + matching modules from the same build.
+
+Linux kernel
+============
+
+There are several guides for kernel developers and users. These guides can
+be rendered in a number of formats, like HTML and PDF. Please read
+Documentation/admin-guide/README.rst first.
+
+In order to build the documentation, use ``make htmldocs`` or
+``make pdfdocs``.  The formatted documentation can also be read online at:
+
+    https://www.kernel.org/doc/html/latest/
+
+There are various text files in the Documentation/ subdirectory,
+several of them using the reStructuredText markup notation.
+
+Please read the Documentation/process/changes.rst file, as it contains the
+requirements for building and running the kernel, and information about
+the problems which may result by upgrading your kernel.
